@@ -1,0 +1,14 @@
+---
+title: BDL
+source_url: http://wms.alaskamapped.org/bdl
+layers: "bdl_low_res,bdl_mid_res,bdl_high_res"
+format: "image/jpeg"
+tiles:
+  y_size: 256
+  x_size: 256
+debug: false
+base_extents:
+  ymax: 90.0
+  xmax: 180.0
+  ymin: -90.0
+  xmin: -180.0

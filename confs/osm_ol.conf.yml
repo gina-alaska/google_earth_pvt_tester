@@ -1,0 +1,14 @@
+---
+title: OSM_Overlay
+source_url: http://ogc.gina.alaska.edu/osm/overlay/
+layers: "osm"
+format: "image/png"
+tiles:
+  y_size: 256
+  x_size: 256
+debug: false
+base_extents:
+  ymax: 90.0
+  xmax: 180.0
+  ymin: -90.0
+  xmin: -180.0

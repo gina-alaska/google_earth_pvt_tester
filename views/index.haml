@@ -1,0 +1,11 @@
+.content
+  Welcome to the kml relay! 
+  Today we are serving these kml sets:
+ 
+  %table
+    -data.sort{|a,b| (a["title"]) <=> (b["title"])}.each do |set|
+      %tr
+        %td
+          %a{:href => "#{set["title"]}/kml", :title=>set["title"]}= set["title"]
+        %td
+          %a{:href => "info/"+set["title"], :title=>set["title"]}= set["title"]
