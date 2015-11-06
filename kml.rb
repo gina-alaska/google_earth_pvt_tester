@@ -16,7 +16,7 @@ class KMLHandler < RackWelder
     @cfg = {
       'set' => set,
       'source' =>  'http://' +  http_conf['host'] + http_conf['base'] + '/' + set + '/bbox/%.20f/%.20f/%.20f/%.20f/',
-      'url' => 'http://' + http_conf['host'] + http_conf['base'] + '/' + '%s/kml/%.20f/%.20f/%.20f/%.20f/',
+      'url' => "http://" + http_conf['host'] + http_conf['base'] + '/' + '%s/kml/%.20f/%.20f/%.20f/%.20f/',
       'cfg' => cfg
     }
 
@@ -25,7 +25,7 @@ class KMLHandler < RackWelder
 
   # get url - returns the url for a bounding box
   def get_wms_url(bbox)
-    sprintf('%s?layers=%s&styles=&service=WMS&format=%s&width=%d&request=GetMap&height=%d&srs=EPSG:4326&version=1.1.1&bbox=%6.10f,%6.10f,%6.10f,%6.10f',
+    sprintf('%s?layers=%s&service=WMS&format=%s&width=%d&request=GetMap&height=%d&srs=EPSG:4326&version=1.1.1&bbox=%6.10f,%6.10f,%6.10f,%6.10f',
             @cfg['cfg']['source_url'],
             @cfg['cfg']['layers'],
 	     @cfg['cfg']['format'],
@@ -102,7 +102,7 @@ class KMLHandler < RackWelder
 
   # url to actual image..
   def url_to_img(_hcfg, _set, tl_x, tl_y, br_x, br_y)
-    get_wms_url('x_min' =>  br_x.to_f, 'x_max' => tl_x.to_f, 'y_min' => br_y.to_f, 'y_max' =>  tl_y.to_f)
+    get_wms_url('x_min' =>  tl_x.to_f, 'x_max' => br_x.to_f, 'y_min' => br_y.to_f, 'y_max' =>  tl_y.to_f)
   end
 
   # Generates a bounding box google kml style
@@ -117,7 +117,7 @@ class KMLHandler < RackWelder
       'name' => [sprintf('%s_%.20f_%.20f_%.20f_%.20f%', set, tl_x, tl_y, br_x, br_y)],
       'Region' =>           [
         {
-          'Lod' => [{ 'maxLodPixels' => ["#{maxlodpixels}"], 'minLodPixels' => ['124'] }],
+          'Lod' => [{ 'maxLodPixels' => ["#{maxlodpixels}"], 'minLodPixels' => ["128"] }],
           'LatLonAltBox' =>                 [{
             'east' => ["#{br_x}"],
             'south' => ["#{br_y}"],
@@ -181,7 +181,7 @@ class KMLHandler < RackWelder
         ],
         'Region' =>     [
           {
-            'Lod' => [{ 'maxLodPixels' => ["#{maxlodpixels}"], 'minLodPixels' => ['124'] }],
+            'Lod' => [{ 'maxLodPixels' => ["#{maxlodpixels}"], 'minLodPixels' => ["124"] }],
             'LatLonAltBox' =>               [{
               'east' => ["#{br_x}"],
               'south' => ["#{br_y}"],
@@ -195,7 +195,7 @@ class KMLHandler < RackWelder
             'xmlns' => 'http://earth.google.com/kml/2.1'
     }
 
-    (XmlSimple.xml_out(hsh,  {'rootname' => 'kml', "NoEscape"=>true}))
+    (XmlSimple.xml_out(hsh,  {'rootname' => 'kml', "NoEscape"=>false}))
   end
 end
 

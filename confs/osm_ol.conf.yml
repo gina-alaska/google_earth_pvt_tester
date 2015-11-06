@@ -1,8 +1,8 @@
 ---
 title: OSM_Overlay
-source_url: http://ogc.gina.alaska.edu/osm/overlay/
-layers: "osm"
-format: "image/png"
+source_url: "http://ogc.gina.alaska.edu/osm/overlay/"
+layers: "MS"
+format: "image/gif"
 tiles:
   y_size: 256
   x_size: 256

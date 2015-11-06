@@ -6,6 +6,6 @@
     -data.sort{|a,b| (a["title"]) <=> (b["title"])}.each do |set|
       %tr
         %td
-          %a{:href => "#{set["title"]}/kml", :title=>set["title"]}= set["title"]
+          %a{:href => "#{set["title"]}/kml/-180.0/90.0/180.0/-90.0/#{set["title"]}_relay.kml", :title=>set["title"]}= set["title"]
         %td
           %a{:href => "info/"+set["title"], :title=>set["title"]}= set["title"]
