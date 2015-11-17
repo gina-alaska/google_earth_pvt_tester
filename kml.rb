@@ -36,7 +36,6 @@ class KMLHandler < RackWelder
 
   # Do something..
   def process(request, response)
-    @logger.puts("KML -> #{request.params[@REMOTE_IP_TAG]} -> #{request.params['REQUEST_URI']}")
 
     uri = request.env['PATH_INFO']
     if  uri.nil?
@@ -48,8 +47,6 @@ class KMLHandler < RackWelder
       #remove last item if not a number = used to detect if a /sfsd/foo.kml
       #type thing is added and remove it.
       uri.delete_at(-1) if !(/^[-+]?[0-9]+[.]?[0-9]*([eE][-+]?[0-9]+)?$/ =~ uri.last )
-      puts uri.join("::")
-
 
       if (uri.length <= 6)
         give404(response, 'Try a real url, perhaps one that is valid and of the form /set/lt_x/tl_y/br_x/br_y')
