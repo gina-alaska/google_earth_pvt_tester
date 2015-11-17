@@ -1,0 +1,14 @@
+---
+title: ASTER.V2
+source_url: http://wms.proto.gina.alaska.edu/wms/epscor
+layers: "ASTER.V2"
+format: "image/png"
+tiles:
+  y_size: 256
+  x_size: 256
+debug: false
+base_extents:
+  ymax: 90.0
+  xmax: 180.0
+  ymin: -90.0
+  xmin: -180.0
