@@ -20,4 +20,4 @@ esri:
 http: 
   bind: 0.0.0.0
   base: /relay
-  host: localhost:2000
+  host: hippy.gina.alaska.edu
