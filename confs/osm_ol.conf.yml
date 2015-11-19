@@ -2,10 +2,17 @@
 title: OSM_Overlay
 source_url: "http://ogc.gina.alaska.edu/osm/overlay/"
 layers: "railways8,railways9,railways10,railways11,railways12,railways13,railways14,railways15,railways16,railways17,railways18,aeroways10,aeroways11,aeroways12,aeroways13,aeroways14,aeroways15,aeroways16,aeroways17,aeroways18,transport_areas11,transport_areas12,transport_areas13,transport_areas14,transport_areas15,transport_areas16,transport_areas17,transport_areas18,roads5,roads6,roads7,roads8,roads9,roads10,roads11,roads12,roads13,roads14,roads15,roads16,roads17,roads18,places0,places1,places2,places3,places4,places5,places6,places7,places8,places9,places10,places11,places12,places13,places14,places15,places16,places17,places18"
-format: "image/gif"
-tiles:
+format: "image/png"
+tiles_256:
   y_size: 256
   x_size: 256
+  minLOD: 200
+  maxLOD: 400
+tiles:
+  y_size: 768
+  x_size: 768
+  minLOD: 600
+  maxLOD: 900
 debug: false
 base_extents:
   ymax: 90.0
