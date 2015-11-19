@@ -20,6 +20,17 @@ class KMLHandler < RackWelder
       'cfg' => cfg
     }
 
+    #lods
+    if ( cfg["tiles"]["minLOD"] && cfg["tiles"]["maxLOD"] ) 
+	#if LOD's exists..
+    	@minLOD = cfg["tiles"]["minLOD"]
+    	@maxLOD = cfg["tiles"]["maxLOD"]
+    else
+	#half overlapping..
+	@minLOD = cfg["tiles"]["x_size"]*(3/4) 
+	@maxLOD = cfg["tiles"]["x_size"]*(5/4)
+    end
+
     # save the root url.
   end
 
@@ -105,16 +116,15 @@ class KMLHandler < RackWelder
   # Generates a bounding box google kml style
 
   def hshtoLatLonAltBox(cfg, set, tl_x, tl_y, br_x, br_y, note)
-    maxlodpixels = -1
     @logger.msgdebug('KMLHandler:hshtoLatLonAltBox:' + sprintf('((br_x - tl_x))=>%g (%s)', (br_x - tl_x), note))
 
-    # Old Lod
-    #  "Lod"=>[ {"maxLodPixels"=>["#{maxlodpixels}"], "minLodPixels"=>["128"],  "minFadeExtent"=>["128"],  "maxFadeExtent"=>["128"]}],
+    maxLOD = -1;
+
     {
       'name' => [sprintf('%s_%.20f_%.20f_%.20f_%.20f%', set, tl_x, tl_y, br_x, br_y)],
       'Region' =>           [
         {
-          'Lod' => [{ 'maxLodPixels' => ["#{maxlodpixels}"], 'minLodPixels' => ["128"] }],
+          'Lod' => [{ 'maxLodPixels' => ["#{maxLOD}"], 'minLodPixels' => ["#{@minLOD}"] }],
           'LatLonAltBox' =>                 [{
             'east' => ["#{br_x}"],
             'south' => ["#{br_y}"],
@@ -137,9 +147,10 @@ class KMLHandler < RackWelder
     w /= 2.0
     h /= 2.0
 
-    maxlodpixels = 1024
-    # maxlodpixels = 680
-    # maxlodpixels = -1 if ((  br_x - tl_x   > 5 ))
+
+    maxLOD = -1;
+    maxLOD = @maxLOD if w < 60
+
 
     networklink = []
 
@@ -178,7 +189,7 @@ class KMLHandler < RackWelder
         ],
         'Region' =>     [
           {
-            'Lod' => [{ 'maxLodPixels' => ["#{maxlodpixels}"], 'minLodPixels' => ["124"] }],
+            'Lod' => [{ 'maxLodPixels' => ["#{maxLOD}"], 'minLodPixels' => ["#{@minLOD}"] }],
             'LatLonAltBox' =>               [{
               'east' => ["#{br_x}"],
               'south' => ["#{br_y}"],
