@@ -6,6 +6,25 @@ This helper tool was built to assist in the debugging the optmization of WMS fee
 The UAA Planetarium Visualization Theature (PVT) uses (insert name of the software here) to provide a a GIS 
 
 
+#how to use it..
+If you are on a mac..
+1: install ruby (I suggest using rbenv using homebrew)
+	brew install rbenv ruby-build
+	rbenv install 2.2.0
+	
+2: clone git repo
+	cd 
+	mkdir gits
+	cd gits
+	git clone https://github.com/gina-alaska/google_earth_pvt_tester.git
+  	cd google_earth_pvt_tester
+3: install ruby bits
+	gem install bundler 
+	bundle install 
+4: run the app
+	rackup -p 2000  -s puma  kml_relay.ru
+5: point your webbrowser at localhost:2000/relay/ , select a kml feed, and begin!
+
 # authors / contributors
 ?
 * Jay Cable - UAF GINA
