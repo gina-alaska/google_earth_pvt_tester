@@ -12,6 +12,9 @@ If you are on a mac..
   * brew install rbenv ruby-build
   * rbenv install 2.2.0
   * (more details here: https://github.com/sstephenson/rbenv#homebrew-on-mac-os-x )	
+
+# now install the app
+
 1. clone git repo
   * cd 
   * mkdir gits
