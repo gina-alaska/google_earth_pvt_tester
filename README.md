@@ -8,10 +8,10 @@ The UAA Planetarium Visualization Theature (PVT) uses (insert name of the softwa
 
 #how to use it..
 If you are on a mac..
-* install ruby (I suggest using rbenv using homebrew)
-** brew install rbenv ruby-build
-** rbenv install 2.2.0
-	
+1. install ruby (I suggest using rbenv using homebrew)
+  * brew install rbenv ruby-build
+  * rbenv install 2.2.0
+  * (more details here: https://github.com/sstephenson/rbenv#homebrew-on-mac-os-x )	
 1. clone git repo
   * cd 
   * mkdir gits
