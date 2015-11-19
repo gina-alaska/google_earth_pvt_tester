@@ -12,18 +12,18 @@ If you are on a mac..
 ** brew install rbenv ruby-build
 ** rbenv install 2.2.0
 	
-* clone git repo
-** cd 
-** mkdir gits
-** cd gits
-** git clone https://github.com/gina-alaska/google_earth_pvt_tester.git
-** cd google_earth_pvt_tester
-* install ruby bits
-** gem install bundler 
-** bundle install 
-* run the app
-** rackup -p 2000  -s puma  kml_relay.ru
-* point your webbrowser at localhost:2000/relay/ , select a kml feed, and begin!
+1. clone git repo
+  * cd 
+  * mkdir gits
+  * cd gits
+  * git clone https://github.com/gina-alaska/google_earth_pvt_tester.git
+  * cd google_earth_pvt_tester
+2. install ruby bits
+  * gem install bundler 
+  * bundle install 
+  * run the app
+  * rackup -p 2000  -s puma  kml_relay.ru
+3. point your webbrowser at localhost:2000/relay/ , select a kml feed, and begin!
 
 # authors / contributors
 ?
